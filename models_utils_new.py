@@ -13,7 +13,7 @@ class Config:
     NUM_EPOCHS = 100  # Увеличение эпох
     LR = 0.0001       # Снижение learning rate
     NUM_CLASSES = 68
-    IMG_SIZE = 256
+    IMG_SIZE = 128
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     FEATURE_DIM = 1280  # Размерность эмбеддингов
     SCALE = 32         # Параметры CosFace
@@ -34,7 +34,7 @@ class DataProcessor:
         ])
         
         self.train_transform = transforms.Compose([
-            # transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE)),
+            transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE)),
             # transforms.RandomRotation(45),
             # transforms.RandomHorizontalFlip(p=0.5),
             # transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1),
@@ -78,7 +78,7 @@ class CosFace(nn.Module):
     def __init__(self, in_features, out_features):
         super().__init__()
         self.W = nn.Parameter(torch.FloatTensor(out_features, in_features))
-        nn.init.kaiming_uniform_(self.W)
+        nn.init.xavier_normal_(self.W)
         
     def forward(self, embeddings, labels):
         # Нормализация весов и эмбеддингов
