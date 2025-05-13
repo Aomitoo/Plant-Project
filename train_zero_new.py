@@ -24,14 +24,20 @@ class Trainer:
             
             self.optimizer.zero_grad()
             
-            with torch.cuda.amp.autocast():
-                logits = self.model(inputs, labels)
-                loss = F.cross_entropy(logits, labels)
-            
+            logits = self.model(inputs, labels)
+            loss = F.cross_entropy(logits, labels)
+
             if is_train:
-                self.scaler.scale(loss).backward()
-                self.scaler.step(self.optimizer)
-                self.scaler.update()
+                loss.backward()
+                self.optimizer.step()
+            # with torch.cuda.amp.autocast():
+            #     logits = self.model(inputs, labels)
+            #     loss = F.cross_entropy(logits, labels)
+            
+            # if is_train:
+            #     self.scaler.scale(loss).backward()
+            #     self.scaler.step(self.optimizer)
+            #     self.scaler.update()
             
             total_loss += loss.item()
             preds = logits.argmax(dim=1)
@@ -49,6 +55,7 @@ if __name__ == "__main__":
     print(f"Train dataset size: {len(train_loader.dataset)}")
     print(f"Test dataset size: {len(test_loader.dataset)}")
     print(f"Total images: {len(train_loader.dataset) + len(test_loader.dataset)}")
+    print("Пример меток:", next(iter(train_loader))[1])
 
     model = DiseaseClassifier()
     optimizer = optim.AdamW(model.parameters(), lr=Config.LR, weight_decay=1e-4)
