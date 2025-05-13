@@ -9,13 +9,13 @@ from PIL import Image
 
 class Config:
     DATA_DIR = Path("D:/DISUES PLANT/DoctorP_dataset")
-    BATCH_SIZE = 64
+    BATCH_SIZE = 32
     NUM_EPOCHS = 100  # Увеличение эпох
     LR = 0.0001       # Снижение learning rate
     NUM_CLASSES = 68
     IMG_SIZE = 256
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    FEATURE_DIM = 512  # Размерность эмбеддингов
+    FEATURE_DIM = 1280  # Размерность эмбеддингов
     SCALE = 32         # Параметры CosFace
     MARGIN = 0.4
     TRAIN_RATIO = 0.8  # Соотношение 80/20
@@ -34,10 +34,11 @@ class DataProcessor:
         ])
         
         self.train_transform = transforms.Compose([
-            transforms.RandomRotation(45),
-            transforms.RandomHorizontalFlip(p=0.5),
-            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1),
-            transforms.RandomResizedCrop(Config.IMG_SIZE, scale=(0.8, 1.2)),
+            # transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE)),
+            # transforms.RandomRotation(45),
+            # transforms.RandomHorizontalFlip(p=0.5),
+            # transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.1),
+            # transforms.RandomResizedCrop(Config.IMG_SIZE, scale=(0.8, 1.2)),
             transforms.ToTensor(),
             transforms.Normalize(self.mean, self.std)
         ])
