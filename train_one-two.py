@@ -4,14 +4,26 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from models_utils_new import Config, DataProcessor, DiseaseClassifier
+from models_utils_new import Config, DataProcessor, DiseaseClassifier, ArcFace
+import matplotlib.pyplot as plt
 
 
 class Trainer:
     def __init__(self, model, optimizer):
         self.model = model.to(Config.DEVICE)
         self.optimizer = optimizer
-        self.scaler = torch.cuda.amp.GradScaler()
+        self.scaler = torch.amp.GradScaler("cuda")
+        
+        # Замораживаем backbone
+        for param in self.model.backbone.parameters():
+            param.requires_grad = False
+            
+        # Размораживаем слои для обучения
+        for param in self.model.embedding.parameters():
+            param.requires_grad = True
+        for param in self.model.head.parameters():
+            param.requires_grad = True
+
 
     def run_epoch(self, loader, is_train=True):
         self.model.train(is_train)
@@ -25,19 +37,16 @@ class Trainer:
             self.optimizer.zero_grad()
             
             logits = self.model(inputs, labels)
-            loss = F.cross_entropy(logits, labels)
+            loss = nn.CrossEntropyLoss()(logits, labels)
 
-            if is_train:
-                loss.backward()
-                self.optimizer.step()
-            # with torch.cuda.amp.autocast():
-            #     logits = self.model(inputs, labels)
-            #     loss = F.cross_entropy(logits, labels)
+            with torch.amp.autocast(device_type='cuda', dtype=torch.float16):
+                logits = self.model(inputs, labels)
+                loss = F.cross_entropy(logits, labels)
             
-            # if is_train:
-            #     self.scaler.scale(loss).backward()
-            #     self.scaler.step(self.optimizer)
-            #     self.scaler.update()
+            if is_train:
+                self.scaler.scale(loss).backward()
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
             
             total_loss += loss.item()
             preds = logits.argmax(dim=1)
@@ -45,6 +54,16 @@ class Trainer:
             pbar.set_postfix({"Loss": loss.item()})
 
         return total_loss / len(loader), correct / len(loader.dataset)
+    
+def show_batch(loader):
+    images, labels = next(iter(loader))
+    plt.figure(figsize=(12, 8))
+    for i in range(6):
+        plt.subplot(2, 3, i+1)
+        img = images[i].permute(1, 2, 0).numpy()
+        plt.imshow(img)
+        plt.title(f"Label: {labels[i].item()}")
+    plt.show()
 
 
 if __name__ == "__main__":
@@ -56,9 +75,21 @@ if __name__ == "__main__":
     print(f"Test dataset size: {len(test_loader.dataset)}")
     print(f"Total images: {len(train_loader.dataset) + len(test_loader.dataset)}")
     print("Пример меток:", next(iter(train_loader))[1])
+    
+
+    show_batch(train_loader)
 
     model = DiseaseClassifier()
-    optimizer = optim.AdamW(model.parameters(), lr=Config.LR, weight_decay=1e-4)
+    optimizer = optim.AdamW(
+    [
+        {'params': model.embedding.parameters()},
+        {'params': model.head.parameters()}
+    ],
+    lr=0.01,  # Увеличьте LR
+    weight_decay=1e-4
+)
+
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'max', patience=3)
     trainer = Trainer(model, optimizer)
 
     best_acc = 0.0
@@ -71,7 +102,7 @@ if __name__ == "__main__":
         
         if val_acc > best_acc:
             best_acc = val_acc
-            torch.save(model.state_dict(), "models/doctorp_resnext_cosface.pth")
+            torch.save(model.state_dict(), "models/doctorp_resnext_arcface.pth")
             print(f"New best model saved! Acc: {best_acc:.2%}")
 
     print("Training completed!")
