@@ -11,8 +11,8 @@ from PIL import Image
 class Config:
     DATA_DIR = Path("D:/DISUES PLANT/DoctorP_dataset")
     BATCH_SIZE = 32
-    NUM_EPOCHS = 30  # Увеличение эпох
-    LR = 0.0001       # Снижение learning rate
+    NUM_EPOCHS = 30 # Увеличение эпох
+    LR = 0.01       # Снижение learning rate
     NUM_CLASSES = 68
     IMG_SIZE = 256
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -98,7 +98,7 @@ class ArcFace(nn.Module):
         cos_theta = x_norm @ W_norm.T
         
         # Ограничение значений для стабильности вычислений
-        cos_theta = torch.clamp(cos_theta, -1.0 + 1e-7, 1.0 - 1e-7)
+        cos_theta = torch.clamp(cos_theta, -1.0 + 1e-6, 1.0 - 1e-6)
         
         # Вычисление углов theta
         theta = torch.acos(cos_theta)
