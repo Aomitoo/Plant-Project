@@ -3,3 +3,4 @@ models/best_model.pth filter=lfs diff=lfs merge=lfs -text
 models/checkpoints/checkpoint_epoch_*.pth filter=lfs diff=lfs merge=lfs -text
 *.pth !text !filter !merge !diff
 doctorp_resnext_arcface_99,8_augm filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
