@@ -1,8 +1,13 @@
 data/
 venv/
+<<<<<<< HEAD
 models/other/
 models/*.pth
 models/
 new_data/
 
 
+=======
+models/
+new_data/
+>>>>>>> 26f180af7de5fcffa99984da2e786697f36fca39
