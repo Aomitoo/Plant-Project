@@ -1,5 +1,8 @@
 data/
 venv/
-new_data/
-.gitignore/
 models/other/
+models/*.pth
+models/
+new_data/
+
+
