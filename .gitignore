@@ -1,4 +1,4 @@
 data/
 venv/
+models/
 new_data/
-.gitignore/
