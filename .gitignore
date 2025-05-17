@@ -2,3 +2,4 @@ data/
 venv/
 new_data/
 .gitignore/
+models/other/
