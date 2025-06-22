@@ -1,0 +1,11 @@
+Average Metrics Across Folds:
+Epoch 1: Val Loss: 14.0702 | Acc: 0.00% | Prec: 0.00% | Rec: 0.00% | F1: 0.00%
+Epoch 2: Val Loss: 10.8773 | Acc: 0.00% | Prec: 0.00% | Rec: 0.00% | F1: 0.00%
+Epoch 3: Val Loss: 1.8061 | Acc: 99.56% | Prec: 99.82% | Rec: 99.56% | F1: 99.64%
+Epoch 4: Val Loss: 1.5860 | Acc: 100.00% | Prec: 100.00% | Rec: 100.00% | F1: 100.00%
+Epoch 5: Val Loss: 1.5795 | Acc: 100.00% | Prec: 100.00% | Rec: 100.00% | F1: 100.00%
+Epoch 6: Val Loss: 1.5642 | Acc: 100.00% | Prec: 100.00% | Rec: 100.00% | F1: 100.00%
+Epoch 7: Val Loss: 1.4959 | Acc: 100.00% | Prec: 100.00% | Rec: 100.00% | F1: 100.00%
+Epoch 8: Val Loss: 1.4895 | Acc: 100.00% | Prec: 100.00% | Rec: 100.00% | F1: 100.00%
+Epoch 9: Val Loss: 1.4895 | Acc: 100.00% | Prec: 100.00% | Rec: 100.00% | F1: 100.00%
+Epoch 10: Val Loss: 1.4895 | Acc: 100.00% | Prec: 100.00% | Rec: 100.00% | F1: 100.00%
