@@ -15,6 +15,8 @@ import os
 import datetime
 import numpy as np
 import math
+from rembg import remove
+import cv2
 
 class Config:
     BATCH_SIZE = 16
@@ -87,49 +89,73 @@ class DiseaseClassifier(nn.Module):
             return self.head(x, labels)
         return self.head(x)
 
-# Класс для центрированного обрезания до 1:1
-class CenterCropSquare:
+def is_valid_image(image):
+    img_array = np.array(image)
+    height, width = img_array.shape[:2]
+    color_pixels = np.any(img_array[:, :, :3] > 10, axis=2)
+    color_ratio = np.sum(color_pixels) / (height * width)
+    rgb_array = cv2.cvtColor(img_array, cv2.COLOR_RGBA2RGB)
+    hsv = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2HSV)
+    hue_hist = cv2.calcHist([hsv], [0], None, [180], [0, 180])
+    hue_variance = np.var(hue_hist)
+    gray = cv2.cvtColor(rgb_array, cv2.COLOR_RGB2GRAY)
+    _, thresh = cv2.threshold(gray, 1, 255, cv2.THRESH_BINARY)
+    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    if not contours:
+        return False
+    largest_contour = max(contours, key=cv2.contourArea)
+    contour_area = cv2.contourArea(largest_contour)
+    total_area = height * width
+    area_ratio = contour_area / total_area
+    is_valid = (color_ratio > 0.5 and area_ratio > 0.1 and hue_variance > 15)
+    if area_ratio > 0.8 and hue_variance > 5:
+        return False
+    return is_valid
+
+class RemoveBackground:
     def __call__(self, img):
-        width, height = img.size
-        size = min(width, height)
-        return transforms.functional.center_crop(img, size)
+        img_no_bg = remove(img)
+        if is_valid_image(img_no_bg):
+            background = Image.new("RGB", img_no_bg.size, (255, 255, 255))
+            background.paste(img_no_bg, mask=img_no_bg.split()[3])
+            return background
+        else:
+            return img.convert("RGB")
+
+transform = transforms.Compose([
+    # RemoveBackground(),
+    transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE), interpolation=transforms.InterpolationMode.BILINEAR),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.4569, 0.5046, 0.3590], std=[0.2169, 0.2138, 0.2120])
+])
+
+def setup_metrics_dir():
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    metrics_dir = f"metrics/{timestamp}_test"
+    os.makedirs(metrics_dir, exist_ok=True)
+    return metrics_dir
 
 def evaluate_test_set(test_dir="test_data/"):
-    # Загрузка модели
+    metrics_dir = setup_metrics_dir()
     model = DiseaseClassifier(num_classes=Config.NUM_CLASSES, stage='stage1')
-    state_dict = torch.load('models/Efficient_70%_BEST.pth', weights_only=True)
+    state_dict = torch.load('models/BEST_efficientnet_sphereface_ 85.25% copy.pth', weights_only=True)
     model.load_state_dict(state_dict)
     model.eval().to(Config.DEVICE)
 
-    # # Трансформации: центрированное обрезание до 1:1, затем ресайз до 128x128
-    # transform = transforms.Compose([
-    #     CenterCropSquare(),  # Обрезка до квадрата (1:1)
-    #     transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE), interpolation=transforms.InterpolationMode.BILINEAR),  # Ресайз до 128x128
-    #     transforms.ToTensor(),
-    #     transforms.Normalize(mean=[0.4425, 0.4931, 0.3288], std=[0.1961, 0.1912, 0.1884])
-    # ])
-
-    transform = transforms.Compose([
-        # CenterCropSquare(),  # Обрезка до квадрата (1:1)
-        transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE), interpolation=transforms.InterpolationMode.BILINEAR),  # Ресайз до 128x128
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.4569, 0.5046, 0.3590], std=[0.2169, 0.2138, 0.2120])])
-
-    # Загрузка тестового набора
     test_dataset = datasets.ImageFolder(test_dir, transform=transform)
     test_loader = DataLoader(test_dataset, batch_size=Config.BATCH_SIZE, shuffle=False, num_workers=2, pin_memory=True, drop_last=True)
     class_names = test_dataset.classes
 
-    # Оценка с обработкой ошибок и сохранением батчей
-    model.eval()
+    misclassified = []
+    image_paths = [sample[0] for sample in test_dataset.samples]
+
     total_loss, total_correct, total_samples = 0.0, 0, 0
     all_preds = []
     all_labels = []
     criterion = nn.CrossEntropyLoss()
-    batch_count = 0
 
     with torch.no_grad():
-        for inputs, labels in tqdm(test_loader, desc="Evaluating Test Set"):
+        for batch_idx, (inputs, labels) in enumerate(tqdm(test_loader, desc="Evaluating Test Set")):
             try:
                 inputs = inputs.to(Config.DEVICE)
                 labels = labels.to(Config.DEVICE)
@@ -142,14 +168,15 @@ def evaluate_test_set(test_dir="test_data/"):
                 all_preds.extend(preds.cpu().numpy())
                 all_labels.extend(labels.cpu().numpy())
 
-                # Сохранение 1-го (0), 5-го (4) и 8-го (7) батчей
-                if batch_count in [0, 4, 7]:
-                    batch_dir = setup_metrics_dir()
-                    torch.save({'inputs': inputs.cpu(), 'labels': labels.cpu()}, f"{batch_dir}/batch_{batch_count}.pt")
-                    # Сохранение изображений как сетку
-                    torchvision.utils.save_image(inputs.cpu(), f"{batch_dir}/batch_{batch_count}.png", nrow=int(inputs.size(0) ** 0.5), normalize=True)
+                for i, (pred, true) in enumerate(zip(preds, labels)):
+                    if pred != true:
+                        global_idx = batch_idx * Config.BATCH_SIZE + i
+                        if global_idx < len(image_paths):
+                            misclassified.append((image_paths[global_idx], true.item(), pred.item()))
 
-                batch_count += 1
+                if batch_idx in [0, 4, 7]:
+                    torch.save({'inputs': inputs.cpu(), 'labels': labels.cpu()}, f"{metrics_dir}/batch_{batch_idx}.pt")
+                    torchvision.utils.save_image(inputs.cpu(), f"{metrics_dir}/batch_{batch_idx}.png", nrow=int(inputs.size(0) ** 0.5), normalize=True)
             except Exception as e:
                 print(f"Error processing batch: {e}. Skipping problematic data.")
 
@@ -165,8 +192,12 @@ def evaluate_test_set(test_dir="test_data/"):
 
     print(f"Test Loss: {test_loss:.4f} | Acc: {test_acc:.2%} | Prec: {test_precision:.2%} | Rec: {test_recall:.2%} | F1: {test_f1:.2%}")
 
-    # Графики
-    metrics_dir = setup_metrics_dir()
+    with open(f"{metrics_dir}/misclassified_images.txt", "w") as f:
+        f.write("Path,True Label,Predicted Label\n")
+        for path, true, pred in misclassified:
+            f.write(f"{path},{class_names[true]},{class_names[pred]}\n")
+    print(f"Misclassified images logged to {metrics_dir}/misclassified_images.txt")
+
     plot_metrics(test_acc, test_loss, test_precision, test_recall, test_f1, metrics_dir)
     plot_confusion_matrix(all_labels, all_preds, class_names, metrics_dir)
 
@@ -174,20 +205,15 @@ def evaluate_test_set(test_dir="test_data/"):
 
 def plot_metrics(test_acc, test_loss, test_precision, test_recall, test_f1, metrics_dir):
     plt.figure(figsize=(12, 6))
-    
-    # График точности
     plt.subplot(1, 2, 1)
     plt.bar(['Test Accuracy'], [test_acc], color='green')
     plt.title('Test Accuracy')
     plt.ylim(0, 1)
     plt.ylabel('Accuracy')
-    
-    # График потерь
     plt.subplot(1, 2, 2)
     plt.bar(['Test Loss'], [test_loss], color='red')
     plt.title('Test Loss')
     plt.ylabel('Loss')
-    
     plt.tight_layout()
     plt.savefig(f"{metrics_dir}/test_metrics.png")
     plt.close()
@@ -204,12 +230,6 @@ def plot_confusion_matrix(all_labels, all_preds, class_names, metrics_dir):
     plt.tight_layout()
     plt.savefig(f"{metrics_dir}/test_confusion_matrix.png")
     plt.close()
-
-def setup_metrics_dir():
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    metrics_dir = f"metrics/{timestamp}_test"
-    os.makedirs(metrics_dir, exist_ok=True)
-    return metrics_dir
 
 if __name__ == "__main__":
     print(f"GPU available: {torch.cuda.is_available()}")
