@@ -1,0 +1,466 @@
+Path,True Label,Predicted Label
+plant_diseases/Alternaria leaf blight\1265.jpg,Spider mite,Dry rot
+plant_diseases/Alternaria leaf blight\1266.jpg,Healthy,Loss of foliage turgor
+plant_diseases/Alternaria leaf blight\1273.jpg,Nutrient deficiency,Bacterial spot
+plant_diseases/Alternaria leaf blight\1274.jpg,Powdery mildew,Anthracnose
+plant_diseases/Alternaria leaf blight\1275.jpg,Sooty mold,Grey mold
+plant_diseases/Alternaria leaf blight\1276.jpg,Mechanical damage,Loss of foliage turgor
+plant_diseases/Alternaria leaf blight\1279.jpg,Scale,Aphid
+plant_diseases/Alternaria leaf blight\1282.jpg,Rust,Mealybug
+plant_diseases/Alternaria leaf blight\1284.jpg,Powdery mildew,Leaf miners
+plant_diseases/Alternaria leaf blight\1287.jpg,Leaf deformation,Late blight
+plant_diseases/Alternaria leaf blight\1295.jpg,Whitefly,Mealybug
+plant_diseases/Alternaria leaf blight\4.jpg,Black spots,Ascochyta blight
+plant_diseases/Alternaria leaf blight\7.jpg,Leaf miners,Mealybug
+plant_diseases/Alternaria leaf blight\aug_0_1.jpg,Powdery mildew,Mealybug
+plant_diseases/Alternaria leaf blight\aug_0_1273.jpg,Leaf deformation,Powdery mildew
+plant_diseases/Alternaria leaf blight\aug_0_1274.jpg,Aphid effects,Anthocyanosis
+plant_diseases/Alternaria leaf blight\aug_0_1275.jpg,Ascochyta blight,Shot hole
+plant_diseases/Alternaria leaf blight\aug_0_1282.jpg,Dry rot,Ascochyta blight
+plant_diseases/Alternaria leaf blight\aug_0_Alternaria leaf blight(2).jpg,Marginal leaf necrosis,Aphid effects
+plant_diseases/Alternaria leaf blight\aug_0_загруженное(9).jpg,Ascochyta blight,Powdery mildew
+plant_diseases/Alternaria leaf blight\aug_1_1266.jpg,Anthocyanosis,Burn
+plant_diseases/Alternaria leaf blight\aug_1_1267.jpg,Burn,Nutrient deficiency
+plant_diseases/Alternaria leaf blight\aug_1_1268.jpg,Whitefly,Leaf miners
+plant_diseases/Alternaria leaf blight\aug_1_1276.jpg,Powdery mildew,Grey mold
+plant_diseases/Alternaria leaf blight\aug_1_1278.jpg,Nutrient deficiency,Edema
+plant_diseases/Alternaria leaf blight\aug_1_1281.jpg,Nutrient deficiency,Healthy
+plant_diseases/Alternaria leaf blight\aug_2_1264.jpg,Nutrient deficiency,Powdery mildew
+plant_diseases/Alternaria leaf blight\aug_2_1267.jpg,Healthy,Mealybug
+plant_diseases/Alternaria leaf blight\aug_2_1268.jpg,Spider mite,Leaf deformation
+plant_diseases/Alternaria leaf blight\aug_2_1269.jpg,Powdery mildew,Sooty mold
+plant_diseases/Alternaria leaf blight\aug_2_1270.jpg,Mosaic virus,Black spots
+plant_diseases/Alternaria leaf blight\aug_2_1273.jpg,Thrips,Whitefly
+plant_diseases/Alternaria leaf blight\aug_2_1277.jpg,Bacterial spot,Loss of foliage turgor
+plant_diseases/Alternaria leaf blight\aug_3_1.jpg,Alternaria leaf blight,Scale
+plant_diseases/Alternaria leaf blight\aug_3_1264.jpg,Healthy,Anthocyanosis
+plant_diseases/Alternaria leaf blight\aug_3_1266.jpg,Mealybug,Spider mite
+plant_diseases/Alternaria leaf blight\aug_3_1267.jpg,Mosaic virus,Thrips
+plant_diseases/Alternaria leaf blight\aug_3_1268.jpg,Leaf deformation,Late blight
+plant_diseases/Alternaria leaf blight\aug_3_1269.jpg,Black spots,Sooty mold
+plant_diseases/Alternaria leaf blight\aug_3_1275.jpg,Ascochyta blight,Anthracnose
+plant_diseases/Alternaria leaf blight\aug_3_1276.jpg,Thrips,Aphid
+plant_diseases/Alternaria leaf blight\aug_3_1277.jpg,Ascochyta blight,Aphid effects
+plant_diseases/Alternaria leaf blight\aug_3_1280.jpg,Anthracnose,Late blight
+plant_diseases/Alternaria leaf blight\aug_3_1282.jpg,Aphid,Mealybug
+plant_diseases/Alternaria leaf blight\aug_4_1264.jpg,Thrips,Scale
+plant_diseases/Alternaria leaf blight\aug_4_1268.jpg,Nutrient deficiency,Burn
+plant_diseases/Alternaria leaf blight\aug_4_1273.jpg,Aphid,Dry rot
+plant_diseases/Alternaria leaf blight\aug_4_1274.jpg,Ascochyta blight,Dry rot
+plant_diseases/Alternaria leaf blight\aug_4_1275.jpg,Leaf deformation,Marginal leaf necrosis
+plant_diseases/Anthocyanosis\3.jpg,Rust,Late blight
+plant_diseases/Anthocyanosis\6.jpg,Mosaic virus,Powdery mildew
+plant_diseases/Anthocyanosis\antoc1.jpg,Bacterial spot,Marginal leaf necrosis
+plant_diseases/Anthocyanosis\antoc11.jpg,Spider mite,Leaf deformation
+plant_diseases/Anthocyanosis\antoc13.jpg,Thrips,Leaf deformation
+plant_diseases/Anthocyanosis\antoc18.jpg,Downy mildew,Nutrient deficiency
+plant_diseases/Anthocyanosis\antoc19.jpg,Aphid,Grey mold
+plant_diseases/Anthocyanosis\antoc3.jpg,Loss of foliage turgor,Healthy
+plant_diseases/Anthocyanosis\antoc5.jpg,Marginal leaf necrosis,Healthy
+plant_diseases/Anthocyanosis\antoc7.jpg,Rust,Dry rot
+plant_diseases/Anthocyanosis\antoc8.jpg,Mechanical damage,Loss of foliage turgor
+plant_diseases/Anthocyanosis\aug_0_10.jpg,Burn,Grey mold
+plant_diseases/Anthocyanosis\aug_0_3.jpg,Whitefly,Leaf deformation
+plant_diseases/Anthocyanosis\aug_0_6.jpg,Spider mite,Whitefly
+plant_diseases/Anthocyanosis\aug_0_999.jpg,Spider mite,Dry rot
+plant_diseases/Anthocyanosis\aug_0_antoc1.jpg,Spider mite,Loss of foliage turgor
+plant_diseases/Anthocyanosis\aug_0_antoc10.jpg,Marginal leaf necrosis,Loss of foliage turgor
+plant_diseases/Anthocyanosis\aug_0_antoc11.jpg,Edema,Aphid
+plant_diseases/Anthocyanosis\aug_0_antoc2.jpg,Nutrient deficiency,Healthy
+plant_diseases/Anthocyanosis\aug_0_загруженное3.jpg,Rust,Bacterial spot
+plant_diseases/Anthocyanosis\aug_0_загруженное4.jpg,Whitefly,Burn
+plant_diseases/Anthocyanosis\aug_1_5.jpg,Spider mite,Dry rot
+plant_diseases/Anthocyanosis\aug_1_6.jpg,Powdery mildew,Grey mold
+plant_diseases/Anthocyanosis\aug_1_antoc10.jpg,Burn,Healthy
+plant_diseases/Anthocyanosis\aug_1_antoc14.jpg,Wilting,Black chaff
+plant_diseases/Anthocyanosis\aug_1_antoc19.jpg,Black spots,Bacterial spot
+plant_diseases/Anthocyanosis\aug_2_6.jpg,Aphid,Grey mold
+plant_diseases/Anthocyanosis\aug_2_antoc14.jpg,Mechanical damage,Burn
+plant_diseases/Anthocyanosis\aug_2_antoc16.jpg,Thrips,Sooty mold
+plant_diseases/Anthocyanosis\aug_2_antoc19.jpg,Bacterial spot,Mosaic virus
+plant_diseases/Anthocyanosis\aug_2_antoc2.jpg,Scale,Anthracnose
+plant_diseases/Anthocyanosis\aug_3_10.jpg,Edema,Grey mold
+plant_diseases/Anthocyanosis\aug_3_antoc10.jpg,Shot hole,Anthracnose
+plant_diseases/Anthocyanosis\aug_3_antoc13.jpg,Bacterial spot,Rust
+plant_diseases/Anthocyanosis\aug_3_antoc14.jpg,Marginal leaf necrosis,Late blight
+plant_diseases/Anthocyanosis\aug_3_antoc18.jpg,Mosaic virus,Black chaff
+plant_diseases/Anthocyanosis\aug_3_antoc19.jpg,Alternaria leaf blight,Aphid effects
+plant_diseases/Anthocyanosis\aug_3_antoc2.jpg,Alternaria leaf blight,Anthracnose
+plant_diseases/Anthocyanosis\aug_3_antoc3.jpg,Scale,Mealybug
+plant_diseases/Anthocyanosis\aug_4_10.jpg,Aphid effects,Shot hole
+plant_diseases/Anthocyanosis\aug_4_3.jpg,Powdery mildew,Alternaria leaf blight
+plant_diseases/Anthocyanosis\aug_4_5.jpg,Spider mite,Anthocyanosis
+plant_diseases/Anthocyanosis\aug_4_9.jpg,Ascochyta blight,Anthracnose
+plant_diseases/Anthocyanosis\aug_4_999.jpg,Marginal leaf necrosis,Ascochyta blight
+plant_diseases/Anthocyanosis\aug_4_antoc1.jpg,Marginal leaf necrosis,Healthy
+plant_diseases/Anthocyanosis\aug_4_antoc15.jpg,Powdery mildew,Thrips
+plant_diseases/Anthracnose\10.jpg,Mealybug,Whitefly
+plant_diseases/Anthracnose\14.jpg,Marginal leaf necrosis,Spider mite
+plant_diseases/Anthracnose\16.jpg,Marginal leaf necrosis,Healthy
+plant_diseases/Anthracnose\18.jpg,Spider mite,Black rot
+plant_diseases/Anthracnose\19.jpg,Thrips,Leaf deformation
+plant_diseases/Anthracnose\2.jpg,Edema,Spider mite
+plant_diseases/Anthracnose\22.jpg,Nutrient deficiency,Spider mite
+plant_diseases/Anthracnose\27.jpg,Healthy,Leaf deformation
+plant_diseases/Anthracnose\29.jpg,Wilting,Burn
+plant_diseases/Anthracnose\3.jpg,Wilting,Mosaic virus
+plant_diseases/Anthracnose\31.jpg,Scale,Black rot
+plant_diseases/Anthracnose\32.jpg,Edema,Spider mite
+plant_diseases/Anthracnose\33.jpg,Powdery mildew,Thrips
+plant_diseases/Anthracnose\4.jpg,Powdery mildew,Marginal leaf necrosis
+plant_diseases/Anthracnose\5.jpg,Late blight,Anthocyanosis
+plant_diseases/Anthracnose\7.jpg,Thrips,Spider mite
+plant_diseases/Anthracnose\9.jpg,Mosaic virus,Anthocyanosis
+plant_diseases/Anthracnose\aug_0_1.jpg,Nutrient deficiency,Downy mildew
+plant_diseases/Anthracnose\aug_0_10.jpg,Leaf miners,Nutrient deficiency
+plant_diseases/Anthracnose\aug_0_15.jpg,Bacterial spot,Rust
+plant_diseases/Anthracnose\aug_0_17.jpg,Burn,Late blight
+plant_diseases/Anthracnose\aug_0_2.jpg,Aphid,Wilting
+plant_diseases/Anthracnose\aug_0_22.jpg,Nutrient deficiency,Burn
+plant_diseases/Anthracnose\aug_0_24.jpg,Nutrient deficiency,Healthy
+plant_diseases/Anthracnose\aug_0_26.jpg,Mealybug,Anthracnose
+plant_diseases/Anthracnose\aug_0_6.jpg,Burn,Rust
+plant_diseases/Anthracnose\aug_0_7.jpg,Powdery mildew,Botrytis cinerea
+plant_diseases/Anthracnose\aug_0_9.jpg,Shot hole,Black spots
+plant_diseases/Anthracnose\aug_0_загруженное3.jpg,Late blight,Leaf deformation
+plant_diseases/Anthracnose\aug_1_1.jpg,Whitefly,Anthracnose
+plant_diseases/Anthracnose\aug_1_10.jpg,Alternaria leaf blight,Black spots
+plant_diseases/Anthracnose\aug_1_14.jpg,Powdery mildew,Dry rot
+plant_diseases/Anthracnose\aug_1_15.jpg,Leaf deformation,Sooty mold
+plant_diseases/Anthracnose\aug_1_17.jpg,Downy mildew,Mosaic virus
+plant_diseases/Anthracnose\aug_1_18.jpg,Mosaic virus,Black spots
+plant_diseases/Anthracnose\aug_1_19.jpg,Aphid,Grey mold
+plant_diseases/Anthracnose\aug_1_2.jpg,Thrips,Aphid
+plant_diseases/Anthracnose\aug_2_12.jpg,Anthocyanosis,Sooty mold
+plant_diseases/Anthracnose\aug_2_13.jpg,Rust,Mechanical damage
+plant_diseases/Anthracnose\aug_2_14.jpg,Shot hole,Ascochyta blight
+plant_diseases/Anthracnose\aug_2_15.jpg,Thrips,Scale
+plant_diseases/Anthracnose\aug_2_18.jpg,Spider mite,Mosaic virus
+plant_diseases/Anthracnose\aug_2_20.jpg,Whitefly,Mechanical damage
+plant_diseases/Anthracnose\aug_2_22.jpg,Mechanical damage,Nutrient deficiency
+plant_diseases/Anthracnose\aug_2_23.jpg,Scale,Mealybug
+plant_diseases/Anthracnose\aug_2_26.jpg,Spider mite,Mealybug
+plant_diseases/Anthracnose\aug_3_10.jpg,Scale,Bacterial spot
+plant_diseases/Anthracnose\aug_3_12.jpg,Burn,Leaf deformation
+plant_diseases/Anthracnose\aug_3_26.jpg,Aphid effects,Shot hole
+plant_diseases/Anthracnose\aug_4_10.jpg,Scale,Bacterial spot
+plant_diseases/Anthracnose\aug_4_12.jpg,Spider mite,Botrytis cinerea
+plant_diseases/Anthracnose\aug_4_16.jpg,Shot hole,Mealybug
+plant_diseases/Anthracnose\aug_4_2.jpg,Scale,Anthracnose
+plant_diseases/Anthracnose\aug_4_20.jpg,Edema,Healthy
+plant_diseases/Anthracnose\aug_4_21.jpg,Shot hole,Aphid effects
+plant_diseases/Anthracnose\aug_4_27.jpg,Nutrient deficiency,Dry rot
+plant_diseases/Anthracnose\cact12.jpg,Black spots,Ascochyta blight
+plant_diseases/Anthracnose\diantr2.jpg,Aphid,Spider mite
+plant_diseases/Aphid\1.jpg,Powdery mildew,Dry rot
+plant_diseases/Aphid\111.jpg,Scale,Dry rot
+plant_diseases/Aphid\12.jpg,Nutrient deficiency,Loss of foliage turgor
+plant_diseases/Aphid\13.jpg,Shot hole,Scale
+plant_diseases/Aphid\16.jpg,Sooty mold,Mosaic virus
+plant_diseases/Aphid\20.jpg,Nutrient deficiency,Downy mildew
+plant_diseases/Aphid\21.jpg,Shot hole,Late blight
+plant_diseases/Aphid\28.jpg,Healthy,Leaf miners
+plant_diseases/Aphid\31.jpg,Aphid effects,Leaf deformation
+plant_diseases/Aphid\32.jpg,Scale,Mechanical damage
+plant_diseases/Aphid\37.jpg,Black spots,Alternaria leaf blight
+plant_diseases/Aphid\38.jpg,Marginal leaf necrosis,Burn
+plant_diseases/Aphid\4.jpg,Wilting,Loss of foliage turgor
+plant_diseases/Aphid\6.jpg,Marginal leaf necrosis,Loss of foliage turgor
+plant_diseases/Aphid\8.jpg,Loss of foliage turgor,Healthy
+plant_diseases/Aphid\aug_0_10.jpg,Rust,Scale
+plant_diseases/Aphid\aug_0_111.jpg,Marginal leaf necrosis,Healthy
+plant_diseases/Aphid\aug_0_13.jpg,Scale,Anthracnose
+plant_diseases/Aphid\aug_0_19.jpg,Shot hole,Botrytis cinerea
+plant_diseases/Aphid\aug_0_23.jpg,Leaf miners,Nutrient deficiency
+plant_diseases/Aphid\aug_0_4.jpg,Leaf miners,Mealybug
+plant_diseases/Aphid\aug_0_6.jpg,Edema,Mosaic virus
+plant_diseases/Aphid\aug_1_14.jpg,Shot hole,Bacterial spot
+plant_diseases/Aphid\aug_1_23.jpg,Anthracnose,Loss of foliage turgor
+plant_diseases/Aphid\aug_1_24.jpg,Leaf deformation,Sooty mold
+plant_diseases/Aphid\aug_1_26.jpg,Whitefly,Scale
+plant_diseases/Aphid\aug_2_1.jpg,Ascochyta blight,Aphid
+plant_diseases/Aphid\aug_2_1456.jpg,Aphid,Grey mold
+plant_diseases/Aphid\aug_2_15.jpg,Spider mite,Loss of foliage turgor
+plant_diseases/Aphid\aug_2_16.jpg,Mechanical damage,Burn
+plant_diseases/Aphid\aug_2_19.jpg,Mosaic virus,Powdery mildew
+plant_diseases/Aphid\aug_2_2.jpg,Spider mite,Black spots
+plant_diseases/Aphid\aug_2_21.jpg,Loss of foliage turgor,Healthy
+plant_diseases/Aphid\aug_2_25.jpg,Leaf miners,Whitefly
+plant_diseases/Aphid\aug_2_26.jpg,Mechanical damage,Aphid
+plant_diseases/Aphid\aug_3_25.jpg,Sooty mold,Anthracnose
+plant_diseases/Aphid\aug_4_1.jpg,Healthy,Scale
+plant_diseases/Aphid\aug_4_10.jpg,Powdery mildew,Rust
+plant_diseases/Aphid\aug_4_12.jpg,Spider mite,Dry rot
+plant_diseases/Aphid\aug_4_14.jpg,Healthy,Mealybug
+plant_diseases/Aphid\aug_4_15.jpg,Marginal leaf necrosis,Nutrient deficiency
+plant_diseases/Aphid\aug_4_2.jpg,Healthy,Leaf miners
+plant_diseases/Aphid\aug_4_20.jpg,Healthy,Grey mold
+plant_diseases/Aphid\bea0.jpg,Ascochyta blight,Anthracnose
+plant_diseases/Aphid\sbu13.jpg,Marginal leaf necrosis,Late blight
+plant_diseases/Aphid effects\1000.jpg,Nutrient deficiency,Spider mite
+plant_diseases/Aphid effects\12.jpg,Burn,Marginal leaf necrosis
+plant_diseases/Aphid effects\13.jpg,Whitefly,Leaf deformation
+plant_diseases/Aphid effects\14.jpg,Burn,Late blight
+plant_diseases/Aphid effects\16.jpg,Scale,Healthy
+plant_diseases/Aphid effects\2.jpg,Burn,Dry rot
+plant_diseases/Aphid effects\21.jpg,Ascochyta blight,Healthy
+plant_diseases/Aphid effects\21111.jpg,Healthy,Mealybug
+plant_diseases/Aphid effects\22.jpg,Rust,Burn
+plant_diseases/Aphid effects\23.jpg,Loss of foliage turgor,Wilting
+plant_diseases/Aphid effects\24.jpg,Dry rot,Burn
+plant_diseases/Aphid effects\25.jpg,Dry rot,Burn
+plant_diseases/Aphid effects\29.jpg,Mechanical damage,Mealybug
+plant_diseases/Aphid effects\31.jpg,Black spots,Dry rot
+plant_diseases/Aphid effects\33.jpg,Black chaff,Rust
+plant_diseases/Aphid effects\3419.jpg,Ascochyta blight,Late blight
+plant_diseases/Aphid effects\3422.jpg,Edema,Bacterial spot
+plant_diseases/Aphid effects\3423.jpg,Nutrient deficiency,Edema
+plant_diseases/Aphid effects\3427.jpg,Thrips,Dry rot
+plant_diseases/Aphid effects\45.jpg,Nutrient deficiency,Anthracnose
+plant_diseases/Aphid effects\46.jpg,Marginal leaf necrosis,Black spots
+plant_diseases/Aphid effects\48.jpg,Powdery mildew,Dry rot
+plant_diseases/Aphid effects\49.jpg,Marginal leaf necrosis,Healthy
+plant_diseases/Aphid effects\53.jpg,Burn,Late blight
+plant_diseases/Aphid effects\56.jpg,Marginal leaf necrosis,Healthy
+plant_diseases/Aphid effects\6.jpg,Bacterial spot,Black spots
+plant_diseases/Aphid effects\8.jpg,Healthy,Powdery mildew
+plant_diseases/Aphid effects\9.jpg,Edema,Spider mite
+plant_diseases/Aphid effects\aug_0_1.jpg,Aphid effects,Leaf deformation
+plant_diseases/Aphid effects\aug_0_12.jpg,Leaf miners,Powdery mildew
+plant_diseases/Aphid effects\aug_0_14.jpg,Healthy,Leaf deformation
+plant_diseases/Aphid effects\aug_0_2.jpg,Nutrient deficiency,Burn
+plant_diseases/Aphid effects\aug_0_20.jpg,Leaf miners,Mosaic virus
+plant_diseases/Aphid effects\aug_0_21.jpg,Nutrient deficiency,Burn
+plant_diseases/Aphid effects\aug_0_21111.jpg,Spider mite,Nutrient deficiency
+plant_diseases/Aphid effects\aug_0_25.jpg,Whitefly,Scale
+plant_diseases/Aphid effects\aug_0_29.jpg,Leaf miners,Grey mold
+plant_diseases/Aphid effects\aug_0_3.jpg,Mosaic virus,Sooty mold
+plant_diseases/Aphid effects\aug_0_33.jpg,Spider mite,Mealybug
+plant_diseases/Aphid effects\aug_0_34.jpg,Spider mite,Leaf miners
+plant_diseases/Aphid effects\aug_0_3419.jpg,Leaf deformation,Dry rot
+plant_diseases/Aphid effects\aug_0_3423.jpg,Mosaic virus,Late blight
+plant_diseases/Aphid effects\aug_0_3427.jpg,Edema,Healthy
+plant_diseases/Aphid effects\aug_0_49.jpg,Powdery mildew,Whitefly
+plant_diseases/Aphid effects\aug_0_53.jpg,Leaf deformation,Late blight
+plant_diseases/Aphid effects\aug_0_56.jpg,Leaf deformation,Leaf miners
+plant_diseases/Aphid effects\aug_1_1.jpg,Leaf deformation,Late blight
+plant_diseases/Aphid effects\aug_1_1000.jpg,Alternaria leaf blight,Black spots
+plant_diseases/Aphid effects\aug_1_14.jpg,Mechanical damage,Spider mite
+plant_diseases/Aphid effects\aug_1_15.jpg,Marginal leaf necrosis,Aphid effects
+plant_diseases/Aphid effects\aug_1_17.jpg,Aphid effects,Black spots
+plant_diseases/Aphid effects\aug_1_19.jpg,Thrips,Powdery mildew
+plant_diseases/Aphid effects\aug_1_21.jpg,Dry rot,Anthocyanosis
+plant_diseases/Aphid effects\aug_1_22.jpg,Bacterial spot,Black spots
+plant_diseases/Aphid effects\aug_1_23.jpg,Healthy,Spider mite
+plant_diseases/Aphid effects\aug_1_26.jpg,Healthy,Shot hole
+plant_diseases/Aphid effects\aug_1_28.jpg,Spider mite,Leaf deformation
+plant_diseases/Aphid effects\aug_1_3.jpg,Ascochyta blight,Alternaria leaf blight
+plant_diseases/Aphid effects\aug_1_30.jpg,Aphid,Wilting
+plant_diseases/Aphid effects\aug_1_31.jpg,Mealybug,Powdery mildew
+plant_diseases/Aphid effects\aug_1_32.jpg,Wilting,Loss of foliage turgor
+plant_diseases/Aphid effects\aug_1_34.jpg,Aphid,Bacterial spot
+plant_diseases/Aphid effects\aug_1_3415.jpg,Scale,Mealybug
+plant_diseases/Aphid effects\aug_1_3419.jpg,Scale,Anthracnose
+plant_diseases/Aphid effects\aug_1_49.jpg,Rust,Burn
+plant_diseases/Aphid effects\aug_1_53.jpg,Nutrient deficiency,Healthy
+plant_diseases/Aphid effects\aug_1_56.jpg,Edema,Mosaic virus
+plant_diseases/Aphid effects\aug_1_6.jpg,Powdery mildew,Grey mold
+plant_diseases/Aphid effects\aug_1_8.jpg,Burn,Black rot
+plant_diseases/Aphid effects\cur1.jpg,Bacterial spot,Aphid effects
+plant_diseases/Aphid effects\disapef4.jpg,Downy mildew,Edema
+plant_diseases/Aphid effects\w2.jpg,Thrips,Alternaria leaf blight
+plant_diseases/Ascochyta blight\10.jpg,Mealybug,Loss of foliage turgor
+plant_diseases/Ascochyta blight\13.jpg,Ascochyta blight,Grey mold
+plant_diseases/Ascochyta blight\16.jpg,Sooty mold,Black spots
+plant_diseases/Ascochyta blight\17.jpg,Rust,Bacterial spot
+plant_diseases/Ascochyta blight\18.jpg,Burn,Nutrient deficiency
+plant_diseases/Ascochyta blight\22.jpg,Spider mite,Leaf miners
+plant_diseases/Ascochyta blight\30.jpg,Dry rot,Burn
+plant_diseases/Ascochyta blight\31.jpg,Mosaic virus,Downy mildew
+plant_diseases/Ascochyta blight\33.jpg,Healthy,Black rot
+plant_diseases/Ascochyta blight\36.jpg,Downy mildew,Rust
+plant_diseases/Ascochyta blight\37.jpg,Grey mold,Powdery mildew
+plant_diseases/Ascochyta blight\40.jpg,Scale,Mealybug
+plant_diseases/Ascochyta blight\42.jpg,Powdery mildew,Sooty mold
+plant_diseases/Ascochyta blight\44.jpg,Rust,Spider mite
+plant_diseases/Ascochyta blight\46.jpg,Aphid effects,Marginal leaf necrosis
+plant_diseases/Ascochyta blight\465.jpg,Black spots,Sooty mold
+plant_diseases/Ascochyta blight\5.jpg,Aphid,Mealybug
+plant_diseases/Ascochyta blight\aug_0_1.jpg,Shot hole,Anthracnose
+plant_diseases/Ascochyta blight\aug_0_10.jpg,Late blight,Burn
+plant_diseases/Ascochyta blight\aug_0_11.jpg,Nutrient deficiency,Shot hole
+plant_diseases/Ascochyta blight\aug_0_15.jpg,Marginal leaf necrosis,Anthracnose
+plant_diseases/Ascochyta blight\aug_0_17.jpg,Spider mite,Mealybug
+plant_diseases/Ascochyta blight\aug_0_19.jpg,Healthy,Nutrient deficiency
+plant_diseases/Ascochyta blight\aug_0_24.jpg,Healthy,Marginal leaf necrosis
+plant_diseases/Ascochyta blight\aug_0_25.jpg,Mosaic virus,Rust
+plant_diseases/Ascochyta blight\aug_0_5.jpg,Mechanical damage,Marginal leaf necrosis
+plant_diseases/Ascochyta blight\aug_0_6.jpg,Edema,Loss of foliage turgor
+plant_diseases/Ascochyta blight\aug_1_11.jpg,Powdery mildew,Healthy
+plant_diseases/Ascochyta blight\aug_1_19.jpg,Mechanical damage,Mealybug
+plant_diseases/Ascochyta blight\aug_1_22.jpg,Anthocyanosis,Nutrient deficiency
+plant_diseases/Ascochyta blight\aug_1_23.jpg,Aphid effects,Shot hole
+plant_diseases/Ascochyta blight\aug_1_24.jpg,Alternaria leaf blight,Marginal leaf necrosis
+plant_diseases/Ascochyta blight\aug_1_25.jpg,Aphid effects,Ascochyta blight
+plant_diseases/Ascochyta blight\aug_1_26.jpg,Burn,Powdery mildew
+plant_diseases/Ascochyta blight\aug_1_28.jpg,Nutrient deficiency,Downy mildew
+plant_diseases/Ascochyta blight\aug_2_15.jpg,Black spots,Sooty mold
+plant_diseases/Ascochyta blight\aug_2_16.jpg,Black chaff,Rust
+plant_diseases/Ascochyta blight\aug_2_18.jpg,Rust,Black chaff
+plant_diseases/Ascochyta blight\aug_2_19.jpg,Marginal leaf necrosis,Dry rot
+plant_diseases/Ascochyta blight\aug_2_20.jpg,Ascochyta blight,Mosaic virus
+plant_diseases/Ascochyta blight\aug_2_21.jpg,Black spots,Sooty mold
+plant_diseases/Ascochyta blight\aug_2_22.jpg,Leaf deformation,Aphid effects
+plant_diseases/Ascochyta blight\aug_2_24.jpg,Nutrient deficiency,Mosaic virus
+plant_diseases/Ascochyta blight\aug_2_26.jpg,Aphid effects,Shot hole
+plant_diseases/Ascochyta blight\aug_2_28.jpg,Ascochyta blight,Dry rot
+plant_diseases/Ascochyta blight\aug_3_10.jpg,Bacterial spot,Scale
+plant_diseases/Ascochyta blight\aug_3_17.jpg,Marginal leaf necrosis,Healthy
+plant_diseases/Ascochyta blight\aug_3_18.jpg,Mealybug,Powdery mildew
+plant_diseases/Ascochyta blight\aug_3_19.jpg,Black spots,Sooty mold
+plant_diseases/Ascochyta blight\aug_3_2.jpg,Shot hole,Scale
+plant_diseases/Ascochyta blight\aug_3_21.jpg,Aphid,Mosaic virus
+plant_diseases/Ascochyta blight\aug_3_28.jpg,Late blight,Grey mold
+plant_diseases/Ascochyta blight\aug_4_10.jpg,Loss of foliage turgor,Black rot
+plant_diseases/Ascochyta blight\aug_4_13.jpg,Ascochyta blight,Leaf miners
+plant_diseases/Ascochyta blight\aug_4_15.jpg,Mechanical damage,Leaf deformation
+plant_diseases/Ascochyta blight\aug_4_19.jpg,Dry rot,Anthracnose
+plant_diseases/Ascochyta blight\aug_4_2.jpg,Nutrient deficiency,Marginal leaf necrosis
+plant_diseases/Ascochyta blight\aug_4_20.jpg,Ascochyta blight,Marginal leaf necrosis
+plant_diseases/Ascochyta blight\aug_4_21.jpg,Nutrient deficiency,Healthy
+plant_diseases/Ascochyta blight\aug_4_23.jpg,Marginal leaf necrosis,Burn
+plant_diseases/Bacterial spot\1443.jpg,Spider mite,Dry rot
+plant_diseases/Bacterial spot\16691.jpg,Thrips,Powdery mildew
+plant_diseases/Bacterial spot\1670.jpg,Healthy,Dry rot
+plant_diseases/Bacterial spot\1672.jpg,Marginal leaf necrosis,Ascochyta blight
+plant_diseases/Bacterial spot\1673.jpg,Scale,Dry rot
+plant_diseases/Bacterial spot\1678.jpg,Spider mite,Burn
+plant_diseases/Bacterial spot\1682.jpg,Spider mite,Dry rot
+plant_diseases/Bacterial spot\1683.jpg,Alternaria leaf blight,Bacterial spot
+plant_diseases/Bacterial spot\1685.jpg,Burn,Wilting
+plant_diseases/Bacterial spot\1690.jpg,Aphid,Rust
+plant_diseases/Bacterial spot\1698.jpg,Anthracnose,Black spots
+plant_diseases/Bacterial spot\1702.jpg,Mosaic virus,Whitefly
+plant_diseases/Bacterial spot\1704.jpg,Loss of foliage turgor,Wilting
+plant_diseases/Bacterial spot\1705.jpg,Scale,Marginal leaf necrosis
+plant_diseases/Bacterial spot\a91.jpg,Burn,Marginal leaf necrosis
+plant_diseases/Bacterial spot\aug_0_16659.jpg,Shot hole,Scale
+plant_diseases/Bacterial spot\aug_0_16691.jpg,Aphid effects,Anthocyanosis
+plant_diseases/Bacterial spot\aug_0_1673.jpg,Rust,Downy mildew
+plant_diseases/Bacterial spot\aug_0_1676.jpg,Bacterial spot,Ascochyta blight
+plant_diseases/Bacterial spot\aug_0_1677.jpg,Leaf deformation,Late blight
+plant_diseases/Bacterial spot\aug_0_1678.jpg,Leaf miners,Black spots
+plant_diseases/Bacterial spot\aug_0_1680.jpg,Bacterial spot,Late blight
+plant_diseases/Bacterial spot\aug_0_1683.jpg,Thrips,Spider mite
+plant_diseases/Bacterial spot\aug_0_1687.jpg,Marginal leaf necrosis,Wilting
+plant_diseases/Bacterial spot\aug_0_1691.jpg,Spider mite,Anthocyanosis
+plant_diseases/Bacterial spot\aug_0_1695.jpg,Aphid,Shot hole
+plant_diseases/Bacterial spot\aug_0_1702.jpg,Late blight,Dry rot
+plant_diseases/Bacterial spot\aug_0_1703.jpg,Rust,Mosaic virus
+plant_diseases/Bacterial spot\aug_0_1704.jpg,Scale,Anthracnose
+plant_diseases/Bacterial spot\aug_0_4.jpg,Edema,Loss of foliage turgor
+plant_diseases/Bacterial spot\aug_0_6.jpg,Thrips,Leaf miners
+plant_diseases/Bacterial spot\aug_0_a9.jpg,Spider mite,Loss of foliage turgor
+plant_diseases/Bacterial spot\aug_0_a91.jpg,Scale,Wilting
+plant_diseases/Bacterial spot\aug_0_ca1.jpg,Late blight,Dry rot
+plant_diseases/Bacterial spot\aug_1_14438.jpg,Marginal leaf necrosis,Burn
+plant_diseases/Bacterial spot\aug_1_16691.jpg,Spider mite,Loss of foliage turgor
+plant_diseases/Bacterial spot\aug_1_166911.jpg,Burn,Mosaic virus
+plant_diseases/Bacterial spot\aug_1_1670.jpg,Powdery mildew,Grey mold
+plant_diseases/Bacterial spot\aug_1_1671.jpg,Alternaria leaf blight,Powdery mildew
+plant_diseases/Bacterial spot\aug_1_1679.jpg,Nutrient deficiency,Healthy
+plant_diseases/Bacterial spot\aug_1_1682.jpg,Black spots,Black rot
+plant_diseases/Bacterial spot\aug_1_1684.jpg,Leaf miners,Black chaff
+plant_diseases/Bacterial spot\aug_1_1688.jpg,Spider mite,Loss of foliage turgor
+plant_diseases/Bacterial spot\aug_1_1689.jpg,Powdery mildew,Whitefly
+plant_diseases/Bacterial spot\aug_1_1690.jpg,Aphid effects,Bacterial spot
+plant_diseases/Bacterial spot\aug_1_1696.jpg,Powdery mildew,Anthocyanosis
+plant_diseases/Bacterial spot\aug_1_1700.jpg,Spider mite,Dry rot
+plant_diseases/Bacterial spot\aug_1_1701.jpg,Healthy,Mealybug
+plant_diseases/Bacterial spot\aug_1_1704.jpg,Leaf deformation,Ascochyta blight
+plant_diseases/Bacterial spot\aug_1_ba1.jpg,Aphid,Mealybug
+plant_diseases/Bacterial spot\aug_1_ca1.jpg,Dry rot,Mealybug
+plant_diseases/Bacterial spot\diz_bacsp.jpg,Black spots,Anthracnose
+plant_diseases/Bacterial spot\rbs27.jpg,Rust,Black chaff
+plant_diseases/Bacterial spot\rbs271.jpg,Late blight,Grey mold
+plant_diseases/Bacterial spot\s1.jpg,Spider mite,Thrips
+plant_diseases/Black chaff\1.jpg,Loss of foliage turgor,Scale
+plant_diseases/Black chaff\2.jpg,Edema,Whitefly
+plant_diseases/Black chaff\449.jpg,Leaf deformation,Powdery mildew
+plant_diseases/Black chaff\450.jpg,Shot hole,Black spots
+plant_diseases/Black chaff\451.jpg,Late blight,Alternaria leaf blight
+plant_diseases/Black chaff\453.jpg,Mealybug,Spider mite
+plant_diseases/Black chaff\454.jpg,Whitefly,Mealybug
+plant_diseases/Black chaff\457.jpg,Grey mold,Anthocyanosis
+plant_diseases/Black chaff\458.jpg,Marginal leaf necrosis,Loss of foliage turgor
+plant_diseases/Black chaff\459.jpg,Powdery mildew,Leaf deformation
+plant_diseases/Black chaff\461.jpg,Sooty mold,Dry rot
+plant_diseases/Black chaff\463.jpg,Burn,Black rot
+plant_diseases/Black chaff\468.jpg,Spider mite,Mealybug
+plant_diseases/Black chaff\472.jpg,Bacterial spot,Anthracnose
+plant_diseases/Black chaff\473.jpg,Shot hole,Bacterial spot
+plant_diseases/Black chaff\474.jpg,Mealybug,Spider mite
+plant_diseases/Black chaff\475.jpg,Leaf deformation,Anthocyanosis
+plant_diseases/Black chaff\476.jpg,Mealybug,Loss of foliage turgor
+plant_diseases/Black chaff\6.jpg,Marginal leaf necrosis,Nutrient deficiency
+plant_diseases/Black chaff\8.jpg,Aphid,Leaf deformation
+plant_diseases/Black chaff\aug_0_1.jpg,Aphid effects,Mosaic virus
+plant_diseases/Black chaff\aug_0_3.jpg,Black spots,Sooty mold
+plant_diseases/Black chaff\aug_0_452.jpg,Bacterial spot,Rust
+plant_diseases/Black chaff\aug_0_453.jpg,Scale,Anthracnose
+plant_diseases/Black chaff\aug_0_454.jpg,Burn,Spider mite
+plant_diseases/Black chaff\aug_0_455.jpg,Burn,Nutrient deficiency
+plant_diseases/Black chaff\aug_0_458.jpg,Bacterial spot,Spider mite
+plant_diseases/Black chaff\aug_0_459.jpg,Leaf miners,Burn
+plant_diseases/Black chaff\aug_0_462.jpg,Edema,Healthy
+plant_diseases/Black chaff\aug_0_463.jpg,Aphid,Anthracnose
+plant_diseases/Black chaff\aug_0_465.jpg,Dry rot,Black rot
+plant_diseases/Black chaff\aug_1_2.jpg,Powdery mildew,Shot hole
+plant_diseases/Black chaff\aug_1_450.jpg,Scale,Sooty mold
+plant_diseases/Black chaff\aug_1_451.jpg,Leaf deformation,Leaf miners
+plant_diseases/Black chaff\aug_1_454.jpg,Leaf deformation,Anthocyanosis
+plant_diseases/Black chaff\aug_1_457.jpg,Mealybug,Marginal leaf necrosis
+plant_diseases/Black chaff\aug_1_458.jpg,Rust,Late blight
+plant_diseases/Black chaff\aug_1_463.jpg,Black spots,Scale
+plant_diseases/Black chaff\aug_1_465.jpg,Bacterial spot,Aphid
+plant_diseases/Black chaff\aug_2_1.jpg,Powdery mildew,Sooty mold
+plant_diseases/Black chaff\aug_2_2.jpg,Marginal leaf necrosis,Mealybug
+plant_diseases/Black chaff\aug_2_3.jpg,Shot hole,Anthracnose
+plant_diseases/Black chaff\aug_2_450.jpg,Edema,Aphid
+plant_diseases/Black chaff\aug_2_452.jpg,Powdery mildew,Sooty mold
+plant_diseases/Black chaff\aug_2_454.jpg,Rust,Aphid effects
+plant_diseases/Black chaff\aug_2_459.jpg,Spider mite,Scale
+plant_diseases/Black chaff\aug_2_462.jpg,Edema,Spider mite
+plant_diseases/Black chaff\aug_3_453.jpg,Rust,Downy mildew
+plant_diseases/Black chaff\aug_3_454.jpg,Whitefly,Healthy
+plant_diseases/Black chaff\aug_3_455.jpg,Leaf deformation,Powdery mildew
+plant_diseases/Black chaff\aug_3_457.jpg,Healthy,Nutrient deficiency
+plant_diseases/Black chaff\aug_3_459.jpg,Thrips,Anthocyanosis
+plant_diseases/Black chaff\aug_3_461.jpg,Mechanical damage,Marginal leaf necrosis
+plant_diseases/Black chaff\aug_4_1.jpg,Sooty mold,Dry rot
+plant_diseases/Black chaff\aug_4_3.jpg,Ascochyta blight,Aphid effects
+plant_diseases/Black chaff\aug_4_449.jpg,Shot hole,Bacterial spot
+plant_diseases/Black chaff\aug_4_451.jpg,Powdery mildew,Leaf deformation
+plant_diseases/Black chaff\aug_4_452.jpg,Thrips,Rust
+plant_diseases/Black chaff\aug_4_453.jpg,Dry rot,Whitefly
+plant_diseases/Black chaff\aug_4_455.jpg,Thrips,Grey mold
+plant_diseases/Black chaff\aug_4_458.jpg,Edema,Healthy
+plant_diseases/Black chaff\aug_4_462.jpg,Black spots,Late blight
+plant_diseases/Black chaff\aug_4_465.jpg,Leaf miners,Mosaic virus
+plant_diseases/Black chaff\diz_blch.jpg,Powdery mildew,Dry rot
+plant_diseases/Black rot\1.jpg,Powdery mildew,Burn
+plant_diseases/Black rot\2.jpg,Spider mite,Loss of foliage turgor
+plant_diseases/Black rot\25.jpg,Spider mite,Sooty mold
+plant_diseases/Black rot\30.jpg,Whitefly,Mealybug
+plant_diseases/Black rot\33.jpg,Scale,Anthracnose
+plant_diseases/Black rot\36.jpg,Shot hole,Black spots
+plant_diseases/Black rot\38.jpg,Marginal leaf necrosis,Mechanical damage
+plant_diseases/Black rot\39.jpg,Rust,Late blight
+plant_diseases/Black rot\4.jpg,Whitefly,Mealybug
+plant_diseases/Black rot\43.jpg,Ascochyta blight,Anthracnose
+plant_diseases/Black rot\44.jpg,Black chaff,Anthracnose
+plant_diseases/Black rot\aug_0_111.jpg,Healthy,Mosaic virus
+plant_diseases/Black rot\aug_0_1443.jpg,Aphid,Bacterial spot
+plant_diseases/Black rot\aug_0_23.jpg,Mealybug,Grey mold
+plant_diseases/Black rot\aug_0_25.jpg,Bacterial spot,Loss of foliage turgor
+plant_diseases/Black rot\aug_0_3.jpg,Black rot,Grey mold
