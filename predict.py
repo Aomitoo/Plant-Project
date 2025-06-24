@@ -114,6 +114,6 @@ def predict_with_tta(image_path, num_augmentations=5):
         return top_results
 
 if __name__ == "__main__":
-    result = predict_with_tta("Мучнистая роса.jpg")
+    result = predict_with_tta("2.jpg")
     for res in result:
         print(f"Class: {res['class_name']}, Index: {res['index']}, Probability: {res['probability']:.4f}")

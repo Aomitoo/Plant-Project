@@ -8,10 +8,10 @@ if __name__ == '__main__':
     dataset = datasets.ImageFolder(
         Path("D:/DISUES PLANT/plant_diseases"),
         transform=transforms.Compose([
-            transforms.Resize((224, 224)),
+            transforms.Resize((128, 128)),
             transforms.ToTensor()]
         ))
-    loader = DataLoader(dataset, batch_size=8, shuffle=False, num_workers=4)
+    loader = DataLoader(dataset, batch_size=16, shuffle=True, num_workers=4)
 
     mean = torch.zeros(3)
     std = torch.zeros(3)

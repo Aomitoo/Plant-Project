@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, models
+import torchvision.utils
 from PIL import Image
 from pathlib import Path
 from tqdm import tqdm
@@ -17,15 +18,15 @@ import math
 
 class Config:
     BATCH_SIZE = 16
-    NUM_CLASSES = 37
+    NUM_CLASSES = 35
     IMG_SIZE = 128
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     BACKBONE_FEATURE_DIM = 1536
     EMBEDDING_DIM = 1280
-    DROPOUT = 0.35
+    DROPOUT = 0.2
 
 class SphereFace(nn.Module):
-    def __init__(self, in_features, out_features, m=2.0):
+    def __init__(self, in_features, out_features, m=1.0):
         super().__init__()
         self.m = m
         self.scale = 32.0
@@ -66,7 +67,7 @@ class ClassificationHead(nn.Module):
         return self.head(x)
 
 class DiseaseClassifier(nn.Module):
-    def __init__(self, num_classes=Config.NUM_CLASSES, stage='stage2'):
+    def __init__(self, num_classes=Config.NUM_CLASSES, stage='stage1'):
         super().__init__()
         self.backbone = models.efficientnet_b3(weights=None)
         self.backbone.classifier = nn.Identity()
@@ -74,7 +75,7 @@ class DiseaseClassifier(nn.Module):
         self.dropout = nn.Dropout(Config.DROPOUT)
         self.stage = stage
         if stage == 'stage1':
-            self.head = SphereFace(Config.EMBEDDING_DIM, num_classes, m=1.2)
+            self.head = SphereFace(Config.EMBEDDING_DIM, num_classes, m=1.0)
         else:
             self.head = ClassificationHead(Config.EMBEDDING_DIM, num_classes)
 
@@ -86,52 +87,46 @@ class DiseaseClassifier(nn.Module):
             return self.head(x, labels)
         return self.head(x)
 
-class CustomPad:
-    def __init__(self, target_size):
-        self.target_size = target_size
-
+# Класс для центрированного обрезания до 1:1
+class CenterCropSquare:
     def __call__(self, img):
-        w, h = img.size
-        # Определяем, какая сторона меньше, и вычисляем паддинг
-        if w > h:
-            new_h = self.target_size
-            new_w = int(w * (self.target_size / h))
-        else:
-            new_w = self.target_size
-            new_h = int(h * (self.target_size / w))
-        # Ресайз с сохранением пропорций
-        img_resized = transforms.functional.resize(img, (new_h, new_w), interpolation=transforms.InterpolationMode.BILINEAR)
-        # Добавляем паддинг до 128x128
-        pad_w = max(0, self.target_size - img_resized.size[0])
-        pad_h = max(0, self.target_size - img_resized.size[1])
-        padding = (pad_w // 2, pad_h // 2, pad_w - pad_w // 2, pad_h - pad_h // 2)
-        return transforms.functional.pad(img_resized, padding, fill=0, padding_mode='constant')
+        width, height = img.size
+        size = min(width, height)
+        return transforms.functional.center_crop(img, size)
 
 def evaluate_test_set(test_dir="test_data/"):
     # Загрузка модели
-    model = DiseaseClassifier(num_classes=Config.NUM_CLASSES, stage='stage2')
-    state_dict = torch.load('models/efficientnet_sphereface_stage2_best.pth', weights_only=True)
+    model = DiseaseClassifier(num_classes=Config.NUM_CLASSES, stage='stage1')
+    state_dict = torch.load('models/Efficient_70%_BEST.pth', weights_only=True)
     model.load_state_dict(state_dict)
     model.eval().to(Config.DEVICE)
 
-    # Трансформации с сохранением пропорций и центрированием
+    # # Трансформации: центрированное обрезание до 1:1, затем ресайз до 128x128
+    # transform = transforms.Compose([
+    #     CenterCropSquare(),  # Обрезка до квадрата (1:1)
+    #     transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE), interpolation=transforms.InterpolationMode.BILINEAR),  # Ресайз до 128x128
+    #     transforms.ToTensor(),
+    #     transforms.Normalize(mean=[0.4425, 0.4931, 0.3288], std=[0.1961, 0.1912, 0.1884])
+    # ])
+
     transform = transforms.Compose([
-        CustomPad(target_size=Config.IMG_SIZE),  # Приводим к 128x128 с паддингом
+        # CenterCropSquare(),  # Обрезка до квадрата (1:1)
+        transforms.Resize((Config.IMG_SIZE, Config.IMG_SIZE), interpolation=transforms.InterpolationMode.BILINEAR),  # Ресайз до 128x128
         transforms.ToTensor(),
-        transforms.Normalize(mean=[0.4425, 0.4931, 0.3288], std=[0.1961, 0.1912, 0.1884])
-    ])
+        transforms.Normalize(mean=[0.4569, 0.5046, 0.3590], std=[0.2169, 0.2138, 0.2120])])
 
     # Загрузка тестового набора
     test_dataset = datasets.ImageFolder(test_dir, transform=transform)
     test_loader = DataLoader(test_dataset, batch_size=Config.BATCH_SIZE, shuffle=False, num_workers=2, pin_memory=True, drop_last=True)
     class_names = test_dataset.classes
 
-    # Оценка с обработкой ошибок
+    # Оценка с обработкой ошибок и сохранением батчей
     model.eval()
     total_loss, total_correct, total_samples = 0.0, 0, 0
     all_preds = []
     all_labels = []
     criterion = nn.CrossEntropyLoss()
+    batch_count = 0
 
     with torch.no_grad():
         for inputs, labels in tqdm(test_loader, desc="Evaluating Test Set"):
@@ -146,6 +141,15 @@ def evaluate_test_set(test_dir="test_data/"):
                 total_samples += inputs.size(0)
                 all_preds.extend(preds.cpu().numpy())
                 all_labels.extend(labels.cpu().numpy())
+
+                # Сохранение 1-го (0), 5-го (4) и 8-го (7) батчей
+                if batch_count in [0, 4, 7]:
+                    batch_dir = setup_metrics_dir()
+                    torch.save({'inputs': inputs.cpu(), 'labels': labels.cpu()}, f"{batch_dir}/batch_{batch_count}.pt")
+                    # Сохранение изображений как сетку
+                    torchvision.utils.save_image(inputs.cpu(), f"{batch_dir}/batch_{batch_count}.png", nrow=int(inputs.size(0) ** 0.5), normalize=True)
+
+                batch_count += 1
             except Exception as e:
                 print(f"Error processing batch: {e}. Skipping problematic data.")
 
@@ -203,7 +207,7 @@ def plot_confusion_matrix(all_labels, all_preds, class_names, metrics_dir):
 
 def setup_metrics_dir():
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    metrics_dir = f"{METRICS_DIR}/{timestamp}_test"
+    metrics_dir = f"metrics/{timestamp}_test"
     os.makedirs(metrics_dir, exist_ok=True)
     return metrics_dir
 
